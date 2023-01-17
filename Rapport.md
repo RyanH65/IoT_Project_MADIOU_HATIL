@@ -24,6 +24,12 @@ Parmi les projets, nous avons choisi le projet “Artificial Nose”. Ce projet 
 
 
 
+
+
+![alt_text](images/image1.png "image_tooltip")
+ 
+
+
 ### Figure 1 : Artificial Nose en train de reconnaître du whisky 
 
 Le principe est simple : grâce au capteur multigaz et à une IA préalablement entraînée, le Wio terminal est capable de déterminer la source de l’odeur parmi un ensemble prédéfini (café, pain, certains alcools forts…).  Les concentrations des différents gaz détectés sont envoyée par wifi sur AzureIoT
@@ -47,9 +53,22 @@ Tout d’abord, analysons le fonctionnement de base prévu par le créateur de c
 
 
 
+
+
+![alt_text](images/image2.png "image_tooltip")
+
+
+
 ### Figure 2 : Architecture globale du système
 
 Dans le schéma ci-dessus, on peut voir que notre Wio terminal communique en wifi directement au serveur Azure IoT. Ce qui nous permet d’avoir les résultats directement sur un tableau de bord intégré au service Azure.
+
+
+
+
+
+
+![alt_text](images/image3.png "image_tooltip")
 
 
 
@@ -60,6 +79,10 @@ Toutefois, dans ce projet, nous avons tenté d’ajouter une communication LoRa,
 
 ## 
 
+
+
+
+![alt_text](images/image4.png "image_tooltip")
 
 
 
