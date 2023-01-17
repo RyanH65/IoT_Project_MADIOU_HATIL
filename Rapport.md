@@ -5,11 +5,6 @@
 
 
 
-[TOC]
-
-
-<h1></h1>
-
 
 <h1>Présentation globale du produit : </h1>
 
