@@ -1,15 +1,18 @@
-# <span style="text-decoration:underline;">Rapport IoT </span>
+<h1><span style="text-decoration:underline;">Rapport IoT </span></h1>
 
 
-# <span style="text-decoration:underline;">Artificial Nose</span>
+<h1><span style="text-decoration:underline;">Artificial Nose</span></h1>
+
 
 
 [TOC]
 
-# 
+
+<h1></h1>
 
 
-# Présentation globale du produit :  {#présentation-globale-du-produit}
+<h1>Présentation globale du produit : </h1>
+
 
 Comme chaque année, les étudiants IESE5 doivent réaliser un projet en lien avec l’IoT. Ces projets sont à choisir parmi une liste prédéfinie. Le but étant d’étudier le prototypage d’un objet connecté et d’un service associé.
 
@@ -24,20 +27,15 @@ Parmi les projets, nous avons choisi le projet “Artificial Nose”. Ce projet 
 * Un capteur[ Grove Multichannel Gas Sensor ](https://wiki.seeedstudio.com/Grove-Multichannel-Gas-Sensor-V2/)
 
 
-
-
-
-
 ![alt_text](images/image1.png "image_tooltip")
  
 
-
-### Figure 1 : Artificial Nose en train de reconnaître du whisky 
+<p>Figure 1 : Artificial Nose en train de reconnaître du whisky 
 
 Le principe est simple : grâce au capteur multigaz et à une IA préalablement entraînée, le Wio terminal est capable de déterminer la source de l’odeur parmi un ensemble prédéfini (café, pain, certains alcools forts…).  Les concentrations des différents gaz détectés sont envoyée par wifi sur AzureIoT
 
+<h1>Analyse du marché </h1>
 
-# Analyse du marché  {#analyse-du-marché}
 
 Avant d’analyser l’architecture du système, faisons une analyse rapide des produits concurrents.
 
@@ -47,58 +45,42 @@ Il existe donc plein de d’olfactomètres qui permettent de détecter une trace
 
 Notre produit, issu d’un projet DIY, n’a donc pas d’équivalent commercial car ça ne sert typiquement à rien. Notre nez artificiel n’a aucun ne permet en aucun cas d’identifier une odeur avec certitude, les cas de faux positifs sont trop nombreux.
 
+<h1 id="architecture-globale">Architecture globale</h1>
 
-# Architecture globale {#architecture-globale}
 
 Tout d’abord, analysons le fonctionnement de base prévu par le créateur de ce projet : 
-
-
-
-
 
 
 ![alt_text](images/image2.png "image_tooltip")
 
 
-
-### Figure 2 : Architecture globale du système
+<p>Figure 2 : Architecture globale du système
 
 Dans le schéma ci-dessus, on peut voir que notre Wio terminal communique en wifi directement au serveur Azure IoT. Ce qui nous permet d’avoir les résultats directement sur un tableau de bord intégré au service Azure.
-
-
-
-
 
 
 ![alt_text](images/image3.png "image_tooltip")
 
 
-
-### Figure 3 : Tableau de bord Azure
+<p>Figure 3 : Tableau de bord Azure
 
 Toutefois, dans ce projet, nous avons tenté d’ajouter une communication LoRa, à la liste du matériel définie dans la présentation globale s’ajoute donc un capteur [Grove LoRa E5](https://wiki.seeedstudio.com/Grove_LoRa_E5_New_Version/). Ce composant permet de communiquer en LoRa à la gateway la plus proche situé dans l’université. Grâce au protocole LoRaWAN, notre message est transmis de la  manière suivante : 
 
-
-## 
-
-
-
-
+<p>
 ![alt_text](images/image4.png "image_tooltip")
 
 
-
-### Figure 4 : Architecture du réseau LoRaWAN
+<p>Figure 4 : Architecture du réseau LoRaWAN
 
 Notre message, partant de l’émetteur Grove E5, est reçu par une gateway qui communique avec un serveur, puis, grâce à chirpstack, on interprète ces messages.
 
+<h1 id="risque-d’atteinte-au-respect-de-la-vie-privée">Risque d’atteinte au respect de la vie privée</h1>
 
-# Risque d’atteinte au respect de la vie privée {#risque-d’atteinte-au-respect-de-la-vie-privée}
 
 Dans notre projet, nous n’avons établi aucune mesure concernant la protection des données transmises. La RGPD n’est donc pas respectée, bien que l’on pourrait admettre que les données relevées par le nez artificiel ne sont pas forcément sensibles…
 
+<h1 id="coût-de-la-bom-bill-of-materials">Coût de la BOM (Bill Of Materials)</h1>
 
-# Coût de la BOM (Bill Of Materials) {#coût-de-la-bom-bill-of-materials}
 
 Les coûts de tous les composants sont les suivants : 
 
@@ -113,18 +95,18 @@ Les coûts de tous les composants sont les suivants :
 
 	Bien que l’on pourrait argumenter qu’il serait insensé de produire 5000 exemplaires d’un produit comme ça avec des plateformes de développement (ce serait comme vendre un produit avec une Arduino dedans), on peut tout de même estimer le prix d’un kit qui contiendrait tous les composants nécessaires. Ce prix serait de $123 sans la livraison. 
 
-
-# Coût de la certification  {#coût-de-la-certification}
-
-Le prix d’une certification LoRa Alliance est à -50 % en ce moment ! Seulement $1000, c’est le moment d’y aller !
+<h1>Coût de la certification </h1>
 
 
-# Autonomie de l’objet {#autonomie-de-l’objet}
+Le prix d’une certification LoRa est très onéreux. Cependant, la certification LoRa Alliance est à -50 % en ce moment ! Seulement $1000, c’est le moment d’y aller !
+
+<h1 id="autonomie-de-l’objet">Autonomie de l’objet</h1>
+
 
 L’autonomie de la batterie est d’environ 3h car l’appareil est équipé d’un écran et que le code ne prévoit pas d’éteindre l’écran… Cependant, même si on pouvait éteindre l’écran, il ne faudrait pas s’attendre à plus d’une journée d’autonomie avec le ventilateur qui tourne en permanence et le capteur de gaz qui a besoin de chauffer pour fonctionner…
 
+<h1 id="cycle-de-vie-du-produit">Cycle de vie du produit</h1>
 
-# Cycle de vie du produit {#cycle-de-vie-du-produit}
 
 Notre nez artificiel à une durée de vie relativement longue. Ses composants étant tous électroniques et n’ayant aucun composant consommable, on peut tout à fait l’utiliser pendant de nombreuses années, sa durée de vie va surtout être corrélée avec l’intérêt qu’on va avoir de lui.
 
@@ -136,8 +118,8 @@ En regardant chacun des composants du nez, nous pourrons mieux nous rendre compt
 
 - L’élément le plus propice à ce dégradé est la coque imprimée en PLA (notamment en cas d’expositions aux UV et/ou à l’humidité).Sa durée de vie peut être estimée à 1- 2 années. Et de plus, il a peu de chance d’être réutilisé ailleurs.
 
+<h1>Métrique du logiciel embarqué </h1>
 
-# Métrique du logiciel embarqué  {#métrique-du-logiciel-embarqué}
 
 Le code fournit par Benjamin Cabé fait 742 lignes. Auquel nous avons dû apporter plusieurs modifications pour essayer d’ajouter la communication LoRa. Le code est alors arrivé à 972 lignes.
 
